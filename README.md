@@ -1,2 +1,6 @@
 # Python-basic
-The directory of my python exercises 
+##### By: Steven Joseph S. Ceniza
+
+
+The repository of my compiled basic python exercises.
+
