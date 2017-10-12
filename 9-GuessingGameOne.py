@@ -1,17 +1,17 @@
 import random
 
 playFlag = True
-numGuess, numGuesses, numRandom = 0, 1, random.randint(0,9)
+numGuesses, numRandom =  1, random.randint(0,9)
 
 while playFlag:
 		guess = int(input("Please input your guess number: "))
 
-		if guess < numGuess:
+		if guess < numRandom:
 			print("Guess is to low")
-		elif guess > numGuess:
+		elif guess > numRandom:
 			print("Guess is to high")
 		else:
-			print("Exact guess! with ", numGuesses, " guesses")
+			print("Exact guess! with ", numGuesses, " guess/es")
 			break
 
 		numGuesses += 1
