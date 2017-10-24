@@ -1,5 +1,5 @@
 """
 Exercise 10: List Overlap Comprehensions
 
-Same with exercise 7
+Same with exercise 5
 """
