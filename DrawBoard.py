@@ -18,6 +18,7 @@ Ask the user what size game board they want to draw, and draw it for them to the
 Remember that in Python 3, printing to the screen is accomplished by
 """
 
+import os
 
 def draw_horizontal(xDimension):
 	print(" _____ " * xDimension)
@@ -30,12 +31,14 @@ def draw_vertical(xDimension, values):
 			print("|      " * (xDimension + 1))
 
 def draw_board(xDimension, yDimension, board):
-
+	cls()
 	for x in range(yDimension):
 		draw_horizontal(xDimension)
 		draw_vertical(xDimension, board[x])
 	draw_horizontal(xDimension)
 
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 if __name__ == "__main__":
 	xDimension = int(input("Please input x dimension: "))
