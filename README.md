@@ -4,6 +4,5 @@
 
 The repository of my compiled basic python exercises.
 
-Credits to: Michele Pratusevich
-Who created the exercises
+Credits to: Michele Pratusevich who created the exercises
 
