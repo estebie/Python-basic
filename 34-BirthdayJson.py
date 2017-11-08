@@ -19,9 +19,9 @@ from datetime import datetime
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
     
-def load_birthdays():
+def loadBirthdays():
 	with open('Birthdays.json', 'r') as f:
-          return json.load(f)
+		return json.load(f)
 
 def list(birthdays):
 	cls()
@@ -29,17 +29,28 @@ def list(birthdays):
 	for key, value in birthdays.items():
 		print(key)
 
-def addEntry():
+def viewEntry(birthdays):
+	cls()
+	try:
+		key = input("Who's birthday do you want to look up? ")
+		print(birthdays[key])
+	except KeyError:
+		print("Scientist not found!")
+
+def addEntry(birthdays):
 	cls()
 	name = input("Input scientist name: ")
 	date = input("Input date in mm/dd/yy: ")
 
-	with open("Birthdays.json", "w") as f_w:
-		birthday[name] = date
-		json.dump(birthday, f_w)
+	with open("Birthdays.json", "w") as file:
+		birthdays[name] = date
+		json.dump(birthdays, file)
+
+	print("Birtday Added Successfully")
+
 
 if __name__ == '__main__':
-	birthdays = load_birthdays()
+	birthdays = loadBirthdays()
 
 	while(True):
 		while(True):
@@ -47,7 +58,7 @@ if __name__ == '__main__':
 			try:
 				choice = int(input("""Please select an operation:
 					\n[1]View Birtday Lists \n[2]View Birthday \n[3]Add Entry \n[4]Exit \n\nChoice: """))
-				if (choice > 0 and choice < ):
+				if (choice > 0 and choice < 5):
 					break
 				else:
 					input("\nInput Error!!!! Press any key to continue...\n")
@@ -58,15 +69,11 @@ if __name__ == '__main__':
 
 		if choice == 1:
 			list(birthdays)
-			input("\nPress any key to continue...")
-		elif choice ==2:
-			addEntry()
+		elif choice == 2:
+			viewEntry(birthdays)
+		elif choice == 3:
+			addEntry(birthdays)
 		else:
 			break
-		# try:
-		# 	key = input("Who's birthday do you want to look up? ")
-		# 	print(birthdays[key])
-		# 	break
-		# except KeyError:
-		# 	print("Scientist not found!")
+		input("\nPress any key to continue...")
 	input()
